@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
     return (
         <div className="FooterContainer">
-            Diseño desarrollado por Daniel Mena
+            Diseñado y desarrollado por Daniel Mena
         </div>
     )
 }

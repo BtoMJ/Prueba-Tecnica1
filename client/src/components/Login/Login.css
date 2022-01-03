@@ -1,6 +1,17 @@
 .LoginContainer{
+    width: 20%;
+    height: 75px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: right;
+    justify-content: flex-end;
+    /* border: thin dotted #f00; */
+}
+
+.LoginContainer .LoginButton{
+    background-color: transparent;
+    font-size: 16px;
+    color: white;
+    transition: .5s all;
+    text-transform: capitalize;
 }
