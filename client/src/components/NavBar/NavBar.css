@@ -1,0 +1,87 @@
+.NavBarContainer{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(32, 6, 54);
+}
+
+.NavBarLogo{
+    width: 50%;
+    /* border: thin dotted #fff; */
+}
+
+.NavBarLogo .Logo{ 
+    width: 200px;
+}
+
+.NavBarLogo .Logo:hover{ 
+    cursor: pointer;
+}
+
+.NavBarMenu{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* border: thin dotted #fff; */
+}
+
+.NavBarMenu .Menu{ 
+    width: 50%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* border: thin dotted #fff; */
+}
+.Menu .MenuButton{
+    background-color: transparent;
+    font-size: 16px;
+    color: white;
+    transition: .5s all;
+    text-transform: capitalize;
+}
+
+.MenuButton:hover{
+    color: rgb(241, 84, 11);
+}
+
+.Menu a{ 
+    text-decoration: none;
+    color: #fff;
+    transition: .5s all;
+}
+
+.Menu a:hover{ 
+    cursor: pointer;
+    color: rgb(241, 84, 11);
+    transform: translateY(-3px);
+}
+
+.NavBarMenu .Search{
+    width: 50%;
+    height: 70px;
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: thin dotted #fff; */
+}
+
+.Search .InputSearch{ 
+    width: 425px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+
+.Search .InputSearch:focus{ 
+    outline: solid 1px rgb(241, 84, 11);
+}
