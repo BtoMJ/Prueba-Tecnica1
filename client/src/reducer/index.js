@@ -11,6 +11,7 @@ import {
 
 const initialState = {
     books: [],
+    booksSearch: [],
     newBook: [],
     bookDetail: [],
     booksSORTED: []
@@ -37,7 +38,7 @@ function rootReducer(state = initialState, action) {
         case GET_BOOK_TITLE:{
             return{
                 ...state,
-                booksSORTED: action.payload
+                booksSearch: action.payload
             }
         }
 

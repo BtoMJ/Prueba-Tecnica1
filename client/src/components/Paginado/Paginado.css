@@ -1,0 +1,40 @@
+.PagesContainer{
+    height: 20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    /* border: thin dotted #f00; */
+}
+
+.PageNumber{
+    width: 30px;
+    font-weight: bold;
+    font-family:sans-serif ;
+    font-size: 15px;
+    border: none;
+    float: left;
+    text-align: center;
+    background-color: transparent;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 15px;
+    position: relative;
+    transition: 0.5s all;
+    /* border: thin dotted #f00; */
+}
+
+
+.PageNumber{
+    color: rgb(104, 104, 104);
+}
+
+.PageNumber:hover{ 
+    color: rgb(241, 84, 11);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+    /* background-color: rgb(228, 228, 228); */
+    background-color: rgb(32, 6, 54);
+    cursor: pointer;
+}
+

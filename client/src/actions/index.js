@@ -10,7 +10,7 @@ export const GET_BOOKS_SORTED = 'GET_BOOKS_SORTED'
 
 export function getBooks() {
     return function(dispatch) {
-      return axios.get("https://www.googleapis.com/books/v1/volumes?q=book")
+      return axios.get("https://www.googleapis.com/books/v1/volumes?q=book+intitle&maxResults=40")
         .then(books => {
             dispatch({ 
                 type: GET_BOOKS, 
@@ -34,31 +34,18 @@ export function getBookDetail(id) {
     }
 }
 
-export function getBookTitle (name) {
+export function getBookTitle (title) {
+    let apiKey = 'AIzaSyBOJrSnfKLiNokRDxC06NtF7mFyMLM_VOE'
     return async function (dispatch) {
         try{
-            var json = await axios.get("http://localhost:3001/countries?name=" + name)
+            var json = await axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title +"&maxResults=40&filter=free-ebooks&key=" + apiKey)
             return dispatch ({
                 type: GET_BOOK_TITLE,
-                payload: json.data
+                payload: json.data.items
             })
         } catch (e) {
             console.log(e)
         }
-    }
-}
-
-export function filterByAuthor(payload){
-    return{
-        type: FILTER_BY_AUTHOR,
-        payload
-    }
-}
-
-export function filterByYear(payload){
-    return{
-        type: FILTER_BY_YEAR,
-        payload
     }
 }
 
@@ -69,26 +56,4 @@ export function postBook(payload){
     }
 }
 
-export function getBooksSORTEDza() {
-    return function(dispatch) {
-        return axios.get("http://localhost:3001/books/za")
-        .then(booksZA => {
-            dispatch({ 
-                type: GET_BOOKS_SORTED, 
-                payload: booksZA.data
-            })
-        })
-    }
-}
 
-export function getBooksSORTEDaz() {
-    return function(dispatch) {
-        return axios.get("http://localhost:3001/books/az")
-        .then(booksAZ => {
-            dispatch({ 
-                type: GET_BOOKS_SORTED, 
-                payload: booksAZ.data
-            })
-        })
-    }
-}
