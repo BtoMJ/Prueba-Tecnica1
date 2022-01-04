@@ -13,7 +13,7 @@ function Login() {
             <Button 
                 className="LoginButton" 
                 size="small" 
-                disableElevation="true"
+                disableElevation={true}
                 onClick={ () => loginWithRedirect() } 
                 endIcon={ <FaceIcon  /> }
                 >Login

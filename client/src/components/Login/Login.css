@@ -5,7 +5,6 @@
     flex-direction: row;
     align-items: right;
     justify-content: flex-end;
-    /* border: thin dotted #f00; */
 }
 
 .LoginContainer .LoginButton{
@@ -14,4 +13,9 @@
     color: white;
     transition: .5s all;
     text-transform: capitalize;
+}
+
+.LoginButton:hover{
+    color: rgb(241, 84, 11);
+    transform: translateY(-3px);
 }
