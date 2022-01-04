@@ -1,75 +1,70 @@
-# Prueba-Tecnica1
-Desarrollo de prueba técnica para puesto Front-end en Fintech Mexicana<br />
+# Getting Started with Create React App
 
-Se trata de una app que hace busqueda de libros, e-books y revistas utilizando la Api de Google Books.<br /><br />
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<img src="capturas/Pantalla 1.png"><br /><br />
+## Available Scripts
 
-Para poder buscar la información, así como agregar libros es necesario estar logueado.<br /><br />
-<img src="capturas/Pantalla 2.png"><br /><br />
-<img src="capturas/Pantalla 3.png"><br /><br />
+In the project directory, you can run:
 
-El back está realizado con <strong>Node.js, Sequelize y Postgres</strong><br /><br />
-<img src="capturas/Pantalla 6.png"><br /><br />
+### `npm start`
 
-Para el front se utilizó <strong>React, HTML, CSS, JavaScript, Material Ui</strong><br /><br />
-<img src="capturas/Pantalla 4.png"><br /><br />
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Para poder correr la aplicación necesitas:
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1) Clonar el repositorio a tu máquina local: <br /><br />
-git clone https://github.com/BtoMJ/Prueba-Tecnica1.git<br /><br />
+### `npm test`
 
-2) Entrar a la carpeta api por la consola (Ctl+j) e instalar las dependencias:<br /><br />
-cd api -----> npm i <br /><br />
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-3) Entrar a la carpeta client por la consola (Ctl+j) y hacer lo mismo<br /><br />
-cd client -----> npm i <br /><br />
+### `npm run build`
 
-4) Ahora iniciamos cada servicio (front y back) en sus respectivas carpetas:<br /><br />
-npm start<br /><br />
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-5) Logueate y prueba la aplicación 😃<br /><br /><br />
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-En el caso del ejercicio 1: <br /><br />
-Dado un arreglo bidimensional de N x M, desarrolle una función que genere un
-arreglo unidimensional de 1 x NM en el cual los elementos correspondan a los
-elementos del arreglo original obtenidos siguiendo una trayectoria de caracol en el
-sentido de las manecillas del reloj, tal como se muestra en los siguientes diagramas:<br /><br />
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-<img src="capturas/Pantalla 7.png"><br /><br />
+### `npm run eject`
 
-Solo tenemos que entrar en la carpeta Ejercicio 1, abrir el archivo Caracol.js <br />
-y abrir la consola para correr la función <strong>(node caracol.js)</strong>, te recomiendo agregar una variable con alguna matriz
-y al final invocar la función con la variable que creeaste como parámetro.<br /><br />
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-----------------------------------------------
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<br />Para el Ejercicio 2 solo entra en la carpeta y da doble click en la imagen.<br /><br />
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-----------------------------------------------
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-<br />Cualquier duda o comentario por favor házmela saber y con gusto me pondré en contacto contigo.<br />
-te dejo algunos links donde pudieras hacer contacto conmigo. Hasta pronto<br /><br />
+## Learn More
 
-REDES SOCIALES:<br />
-<div style="diplay: flex; flex-direcction: row; align-items: center; justify-content: space-around">
-    <a href="https://www.linkedin.com/in/daniel-full-stack/" target="_blank" style="text-decoration: none, color: #000, float: left">
-        <img src="./capturas/assets/linkeding_png.png" height="40px" style="float: left; margin-right: 20px"/> 
-    </a>
-    <a href="https://twitter.com/DanielO1384" target="_blank" style="text-decoration: none, color: #000, float: left">
-        <img src="./capturas/assets/twitter_png.png" height="40px" style="float: left; margin-right: 20px"/>
-    </a>
-    <a href="https://wa.me/524761037311" target="_blank" style="text-decoration: none, color: #000, float: left, margin-right: 20px">
-        <img src="./capturas/assets/wp_png.png" height="40px" style="float: left"/>
-    </a>
-    <a href="https://portafolio-2021.vercel.app/" target="_blank" style="text-decoration: none, color: #000, float: left, margin-right: 20px">
-        <img src="./capturas/assets/Logo-Code.png" height="45px" style="float: left"/>
-    </a>
-</div><br /><br />
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<br />
-Da click en cualquiera de los íconos
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
