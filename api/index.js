@@ -24,7 +24,9 @@ conn.sync({
       }
     })
 
-  await Book.bulkCreate(apiBooks).then(console.log("Hecho !!")).catch(console.error)
+  await Book.bulkCreate(apiBooks)
+    .then(console.log("Hecho !!"))
+    .catch(console.error)
 
   console.log('Base de datos conectada correctamente')
   server.listen(3001, () => {
