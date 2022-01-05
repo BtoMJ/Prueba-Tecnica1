@@ -8,9 +8,7 @@ import AddBook from '../Form/Form.jsx';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import { getBooks, getBookTitle } from '../../actions/index.js';
