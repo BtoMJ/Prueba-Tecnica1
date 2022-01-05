@@ -78,6 +78,7 @@ function App() {
         </div>
 
       </div>
+
       <div className="AppFooter">
         <Footer />
       </div>
