@@ -5,7 +5,7 @@ import {
     FILTER_BY_AUTHOR,
     FILTER_BY_YEAR,
     ADD_BOOK, 
-    GET_BOOKS_SORTED
+    GET_BOOKS_BD
  } from '../actions/index.js';
 
 
@@ -14,7 +14,7 @@ const initialState = {
     booksSearch: [],
     newBook: [],
     bookDetail: [],
-    booksSORTED: []
+    booksBD: []
   };
 
 function rootReducer(state = initialState, action) {    
@@ -23,8 +23,14 @@ function rootReducer(state = initialState, action) {
         case GET_BOOKS:{
             return{
                 ...state,
-                books: action.payload,
-                booksSORTED: action.payload
+                booksBD: action.payload
+            }
+        }
+
+        case GET_BOOKS_BD:{
+            return{
+                ...state,
+                booksBD: action.payload
             }
         }
 
@@ -42,29 +48,6 @@ function rootReducer(state = initialState, action) {
             }
         }
 
-        case GET_BOOKS_SORTED:{
-            return{
-                ...state,
-                booksSORTED: action.payload
-            }
-        }
-
-        case FILTER_BY_AUTHOR:{
-            return{
-                ...state,
-                booksSORTED: action.payload
-            }
-        }
-
-        case FILTER_BY_YEAR:{
-            const allActi = state.allActivities
-            const activityFiltered = allActi.filter(ele => ele.name === action.payload)
-            return{
-                ...state,
-                activity: activityFiltered
-            }
-        }
-        
         case ADD_BOOK:{
             return{
                 ...state,
