@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { VscTriangleLeft } from 'react-icons/vsc';
-import { useSelector } from 'react-redux';
-
+import swal from 'sweetalert';
 import './Form.css';
 
 
@@ -34,7 +33,6 @@ function validate(formData){
 
 function AddBook() {
 
-var books = useSelector(state => state.booksSearch)
 
 const [formData, setFormData] = useState({
     id: "",
@@ -66,9 +64,15 @@ function handleChange(e) {
 async function handleSubmit(e) {
     e.preventDefault();
     if(formData.title && formData.title && formData.author && formData.year && formData.pages && formData.content_short && formData.publisher && formData.language && formData.thumbnail ){
-        console.log(formData)
-        await axios.post('http://localhost:3001/addBook', formData ).then(console.log("Hecho !!")).catch(console.error)
-        alert('Libro agregado correctamente')  
+        await axios.post('http://localhost:3001/addBook', formData )
+            .then(console.log("Hecho !!"))
+            .catch(console.error)
+        swal("Libro agregado correctamente", {
+            icon: "success",
+            buttons: false,
+            timer: 3000,
+          });
+        
         setFormData({
             id: "",
             title: "", 
@@ -101,7 +105,7 @@ async function handleSubmit(e) {
                     maxLength ="12"/>
                     {
                         errors.id && (
-                            <div className="ErrorContainer">
+                            <div className="ErrorContainer1">
                                 <VscTriangleLeft className="ArrowLeft1" />
                                 <label className="ErrorLabel">{errors.id}</label>
                             </div>  
@@ -119,8 +123,8 @@ async function handleSubmit(e) {
                     maxLength ="35"/>
                     {
                         errors.title && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer2">
+                                <VscTriangleLeft className="ArrowLeft2" />
                                 <label className="ErrorLabel">{errors.title}</label>
                             </div>  
                         )
@@ -137,8 +141,8 @@ async function handleSubmit(e) {
                     maxLength ="35"/>
                     {
                         errors.author && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer3">
+                                <VscTriangleLeft className="ArrowLeft3" />
                                 <label className="ErrorLabel">{errors.author}</label>
                             </div>  
                         )
@@ -147,16 +151,17 @@ async function handleSubmit(e) {
                 <label htmlFor='year' className="Etiqueta">Year</label>
                 <input 
                     className="Input" 
-                    type='text' 
+                    type='number' 
                     name='year' 
                     id='year'  
                     value={formData.year} 
                     onChange={e => handleChange(e)} 
+                    pattern="[0-9]+"
                     maxLength ="4"/>
                     {
                         errors.year && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer4">
+                                <VscTriangleLeft className="ArrowLeft4" />
                                 <label className="ErrorLabel">{errors.year}</label>
                             </div>  
                         )
@@ -165,7 +170,7 @@ async function handleSubmit(e) {
                 <label htmlFor='pages' className="Etiqueta">Pages</label>
                 <input 
                     className="Input" 
-                    type='text' 
+                    type='number' 
                     name='pages' 
                     id='pages'  
                     value={formData.pages} 
@@ -173,8 +178,8 @@ async function handleSubmit(e) {
                     maxLength ="4"/>
                     {
                         errors.pages && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer5">
+                                <VscTriangleLeft className="ArrowLeft5" />
                                 <label className="ErrorLabel">{errors.pages}</label>
                             </div>  
                         )
@@ -182,7 +187,7 @@ async function handleSubmit(e) {
 
                 <label htmlFor='content_short' className="Etiqueta">Description</label>
                 <textarea 
-                    className="Input" 
+                    className="TextArea" 
                     name='content_short' 
                     id='content_short'  
                     value={formData.content_short} 
@@ -190,8 +195,8 @@ async function handleSubmit(e) {
                 />
                     {
                         errors.content_short && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer6">
+                                <VscTriangleLeft className="ArrowLeft6" />
                                 <label className="ErrorLabel">{errors.content_short}</label>
                             </div>  
                         )
@@ -208,8 +213,8 @@ async function handleSubmit(e) {
                     maxLength ="20"/>
                     {
                         errors.publisher && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer7">
+                                <VscTriangleLeft className="ArrowLeft7" />
                                 <label className="ErrorLabel">{errors.publisher}</label>
                             </div>  
                         )
@@ -223,11 +228,11 @@ async function handleSubmit(e) {
                     id='language'  
                     value={formData.language} 
                     onChange={e => handleChange(e)} 
-                    maxLength ="20"/>
+                    maxLength ="2"/>
                     {
                         errors.language && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer8">
+                                <VscTriangleLeft className="ArrowLeft8" />
                                 <label className="ErrorLabel">{errors.language}</label>
                             </div>  
                         )
@@ -244,8 +249,8 @@ async function handleSubmit(e) {
                     maxLength ="20"/>
                     {
                         errors.thumbnail && (
-                            <div className="ErrorContainer">
-                                <VscTriangleLeft className="ArrowLeft1" />
+                            <div className="ErrorContainer9">
+                                <VscTriangleLeft className="ArrowLeft9" />
                                 <label className="ErrorLabel">{errors.thumbnail}</label>
                             </div>  
                         )

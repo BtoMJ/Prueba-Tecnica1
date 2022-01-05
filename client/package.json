@@ -21,9 +21,9 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
-    "react-toastify": "^8.1.0",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
