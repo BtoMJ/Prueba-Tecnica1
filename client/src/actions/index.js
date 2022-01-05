@@ -6,6 +6,7 @@ export const FILTER_BY_AUTHOR = 'FILTER_BY_AUTHOR'
 export const FILTER_BY_YEAR = 'FILTER_BY_YEAR'
 export const ADD_BOOK = 'ADD_BOOK'
 export const GET_BOOKS_SORTED = 'GET_BOOKS_SORTED'
+export const GET_BOOKS_BD = 'GET_BOOKS_BD'
 
 
 export function getBooks() {
@@ -14,6 +15,18 @@ export function getBooks() {
         .then(books => {
             dispatch({ 
                 type: GET_BOOKS, 
+                payload: books.data
+            })
+        })
+    }
+  }
+
+export function getBooksBD() {
+    return function(dispatch) {
+      return axios.get("http://localhost:3001/books")
+        .then(books => {
+            dispatch({ 
+                type: GET_BOOKS_BD, 
                 payload: books.data
             })
         })

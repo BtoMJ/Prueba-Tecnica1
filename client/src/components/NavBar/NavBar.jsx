@@ -4,14 +4,37 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Login from '../Login/Login.jsx';
 import Logout from '../Logout/Logout.jsx';
 import Logo from '../../assets/logo.png';
+import AddBook from '../Form/Form.jsx';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 import { getBooks, getBookTitle } from '../../actions/index.js';
 import './NavBar.css';
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    height: 620,
+    bgcolor: 'background.paper',
+    border: 'none',
+    borderRadius: '10px',
+    boxShadow: 24,
+    p: 4,
+  };
+
 function NavBar() {
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const { user, isAuthenticated } = useAuth0()
     const [ title, setTitle] = React.useState('')
@@ -47,11 +70,19 @@ function NavBar() {
                         isAuthenticated ?
                             <div className="Menu" >
                                 <Button className="MenuButton" size="small" disableElevation={true}>E-Books</Button>
-                                <Button className="MenuButton" size="small" disableElevation={true}>Agregar</Button>
+                                <Button className="MenuButton" size="small" disableElevation={true} onClick={handleOpen}>Agregar</Button>
                                 <Logout />
                                 <div className="NavBarUserPicture">
                                     <img src={user.picture} alt={user.name}/>
                                 </div>
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                >
+                                    <Box sx={style}>
+                                        <AddBook />
+                                    </Box>
+                                </Modal>
                             </div>
                         :
                             <Login />   
