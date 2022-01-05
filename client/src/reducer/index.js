@@ -5,7 +5,6 @@ import {
     FILTER_BY_AUTHOR,
     FILTER_BY_YEAR,
     ADD_BOOK, 
-    GET_BOOKS_BD
  } from '../actions/index.js';
 
 
@@ -21,13 +20,6 @@ function rootReducer(state = initialState, action) {
     switch (action.type) {
 
         case GET_BOOKS:{
-            return{
-                ...state,
-                booksBD: action.payload
-            }
-        }
-
-        case GET_BOOKS_BD:{
             return{
                 ...state,
                 booksBD: action.payload

@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
 
-  const { user, isAuthenticated } = useAuth0()
+  const { isAuthenticated } = useAuth0()
 
   var books = useSelector(state => state.booksSearch)
 

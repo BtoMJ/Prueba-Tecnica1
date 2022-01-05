@@ -10,8 +10,10 @@ function validate(formData){
 
     let errors = {}
 
-    if(!formData.title){
-        errors.title = "Se requiere un título"
+    if(!formData.id){
+        errors.id = "Se requiere un ID"
+    } else if(!formData.title){
+        errors.title = "Se requiere un Título"
     } else if(!formData.author){
         errors.author = "Se requiere un Autor"
     } else if(!formData.year){
@@ -35,6 +37,7 @@ function AddBook() {
 var books = useSelector(state => state.booksSearch)
 
 const [formData, setFormData] = useState({
+    id: "",
     title: "", 
     author: "", 
     year: "",
@@ -62,10 +65,12 @@ function handleChange(e) {
 
 async function handleSubmit(e) {
     e.preventDefault();
-    if(formData.title && formData.author && formData.year && formData.pages && formData.content_short && formData.publisher && formData.language && formData.thumbnail ){
-        await axios.post('http://localhost:3001/addBook', formData )
+    if(formData.title && formData.title && formData.author && formData.year && formData.pages && formData.content_short && formData.publisher && formData.language && formData.thumbnail ){
+        console.log(formData)
+        await axios.post('http://localhost:3001/addBook', formData ).then(console.log("Hecho !!")).catch(console.error)
         alert('Libro agregado correctamente')  
         setFormData({
+            id: "",
             title: "", 
             author: "", 
             year: "",
@@ -85,6 +90,24 @@ async function handleSubmit(e) {
         <div className="Form">
             <form onSubmit={handleSubmit} id="Formulario">
               
+                <label htmlFor='id' className="Etiqueta">Id</label>
+                <input 
+                    className="Input" 
+                    type='text' 
+                    name='id' 
+                    id='id'  
+                    value={formData.id} 
+                    onChange={e => handleChange(e)} 
+                    maxLength ="12"/>
+                    {
+                        errors.id && (
+                            <div className="ErrorContainer">
+                                <VscTriangleLeft className="ArrowLeft1" />
+                                <label className="ErrorLabel">{errors.id}</label>
+                            </div>  
+                        )
+                    }
+
                 <label htmlFor='title' className="Etiqueta">Title</label>
                 <input 
                     className="Input" 
@@ -158,14 +181,13 @@ async function handleSubmit(e) {
                     }
 
                 <label htmlFor='content_short' className="Etiqueta">Description</label>
-                <input 
+                <textarea 
                     className="Input" 
-                    type='text' 
                     name='content_short' 
-                    id='pacontent_shortges'  
-                    value={formData.pagcontent_shortes} 
+                    id='content_short'  
+                    value={formData.content_short} 
                     onChange={e => handleChange(e)} 
-                    maxLength ="4"/>
+                />
                     {
                         errors.content_short && (
                             <div className="ErrorContainer">
@@ -199,7 +221,7 @@ async function handleSubmit(e) {
                     type='text' 
                     name='language' 
                     id='language'  
-                    value={formData.publisher} 
+                    value={formData.language} 
                     onChange={e => handleChange(e)} 
                     maxLength ="20"/>
                     {
@@ -217,7 +239,7 @@ async function handleSubmit(e) {
                     type='text' 
                     name='thumbnail' 
                     id='thumbnail'  
-                    value={formData.publisher} 
+                    value={formData.thumbnail} 
                     onChange={e => handleChange(e)} 
                     maxLength ="20"/>
                     {
