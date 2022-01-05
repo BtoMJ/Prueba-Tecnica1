@@ -40,30 +40,26 @@ const getBooksDB =  () => {
 
 router.get('/books', async (req, res) => {
 
-  const title = req.query.title
   let booksLoad = await getBooksDB()
 
-  if(title){
-    let bookName = await countries.filter(country =>
-     country.name.toLowerCase().includes(name.toLowerCase()))
-
-     countryName.length ?
-     res.status(200).send(countryName) :
-     res.status(404).send('No existe ese libro')
-  } else {
-    res.status(200).send(countries)
-  }
+  booksLoad.length ? 
+    res.status(200).send(booksLoad) 
+  : 
+    res.status(404).send('No existe ese libro')
+  
 })
 
 
 router.post('/addBook', async (req, res) => {
   
-  const { title, author, year, pages, content_short, publisher, language, thumbnail } = req.body
+  const { id, title, author, year, pages, content_short, publisher, language, thumbnail } = req.body
+  console.log(title)
   
   try{
     
     let [act, created] = await Book.findOrCreate({
       where: {
+        id: id,
         title: title,
         author: author,
         year: year,
@@ -74,7 +70,6 @@ router.post('/addBook', async (req, res) => {
         thumbnail: thumbnail,
       }})
       
-      await act.setBooks()
       return res.status(200).json(act)
       
     } catch (error) {
