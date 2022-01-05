@@ -6,7 +6,6 @@ export const FILTER_BY_AUTHOR = 'FILTER_BY_AUTHOR'
 export const FILTER_BY_YEAR = 'FILTER_BY_YEAR'
 export const ADD_BOOK = 'ADD_BOOK'
 export const GET_BOOKS_SORTED = 'GET_BOOKS_SORTED'
-export const GET_BOOKS_BD = 'GET_BOOKS_BD'
 
 
 export function getBooks() {
@@ -15,18 +14,6 @@ export function getBooks() {
         .then(books => {
             dispatch({ 
                 type: GET_BOOKS, 
-                payload: books.data
-            })
-        })
-    }
-  }
-
-export function getBooksBD() {
-    return function(dispatch) {
-      return axios.get("http://localhost:3001/books")
-        .then(books => {
-            dispatch({ 
-                type: GET_BOOKS_BD, 
                 payload: books.data
             })
         })
@@ -51,7 +38,7 @@ export function getBookTitle (title) {
     let apiKey = 'AIzaSyBOJrSnfKLiNokRDxC06NtF7mFyMLM_VOE'
     return async function (dispatch) {
         try{
-            var json = await axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title +"&maxResults=40&filter=free-ebooks&key=" + apiKey)
+            var json = await axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title + "&maxResults=40&filter=free-ebooks&key=" + apiKey)
             return dispatch ({
                 type: GET_BOOK_TITLE,
                 payload: json.data.items

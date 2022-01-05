@@ -10,10 +10,9 @@ import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-import { getBooks, getBookTitle } from '../../actions/index.js';
+import { getBooks, getBookTitle, getBooksBD } from '../../actions/index.js';
 import './NavBar.css';
 
 const style = {
@@ -22,7 +21,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 600,
-    height: 620,
+    height: 670,
     bgcolor: 'background.paper',
     border: 'none',
     borderRadius: '10px',
@@ -48,13 +47,11 @@ function NavBar() {
     function handleInputChange(e){
         e.preventDefault()
         setTitle(e.target.value)
-        console.log(title)
     }
 
     function handleSubmit(e){
         e.preventDefault()
         dispatch(getBookTitle(title))
-        console.log(title)
     }
 
     return (
@@ -69,8 +66,8 @@ function NavBar() {
                     {
                         isAuthenticated ?
                             <div className="Menu" >
-                                <Button className="MenuButton" size="small" disableElevation={true}>E-Books</Button>
-                                <Button className="MenuButton" size="small" disableElevation={true} onClick={handleOpen}>Agregar</Button>
+                                <Button className="MenuButton" size="small" disableElevation={true} >E-Books</Button>
+                                <Button className="MenuButton" size="small" disableElevation={true} onClick={ handleOpen }>Agregar</Button>
                                 <Logout />
                                 <div className="NavBarUserPicture">
                                     <img src={user.picture} alt={user.name}/>
@@ -92,9 +89,9 @@ function NavBar() {
                 <div className="Search">
                         <input 
                             type="text" 
-                            className="InputSearch" 
-                            placeholder={ isAuthenticated ? "Buscar Libro..." : "Logueate para poder buscar"}
-                            onChange={ (e) => handleInputChange(e) }
+                            className = "InputSearch" 
+                            placeholder = { isAuthenticated ? "Buscar Libro..." : "Logueate para poder buscar"}
+                            onChange = { (e) => handleInputChange(e) }
                             disabled = { isAuthenticated ? false : true }
                         />
                         <IconButton aria-label="search" onClick={ (e) => handleSubmit(e) }>
